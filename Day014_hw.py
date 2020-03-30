@@ -101,17 +101,37 @@ resp = requests.get(url, params=payload)
 soup = BeautifulSoup(resp.json()['view'], 'lxml')
 htmls = soup.find_all("ul", attrs={'data-theater_name':re.compile(".*")})
 
-for html in htmls:
-    # print("電影院名稱：%s \n影片放映類型：%s\n時間表：%s\n\n" % (html.a.string, html.span.string, html.label.string))
 
-    # 電影院名稱：
-    theater_name = html.find("li", attrs={"class":"adds"})
-    print("電影院名稱：", theater_name.a.string)
+# 列印上映電影院以及時間(我的)
+# for html in htmls:
+#     # print("電影院名稱：%s \n影片放映類型：%s\n時間表：%s\n\n" % (html.a.string, html.span.string, html.label.string))
+
+#     # 電影院名稱：
+#     theater_name = html.find("li", attrs={"class":"adds"})
+#     print("電影院名稱：", theater_name.a.string)
     
-    # 影片放映類型：
-    tap_name = html.find("li", attrs={"class":"taps"})
-    print("影片放映類型：", tap_name.span.string)
+#     # 影片放映類型：
+#     tap_name = html.find("li", attrs={"class":"taps"})
+#     print("影片放映類型：", tap_name.span.string)
     
-    # 時間表：
-    theater_time = html.find_all("div", attrs={"class":"input_picker jq_input_picker"})
-    print("時間表：", theater_time[0].text)
+#     # 時間表：
+#     theater_time = html.find_all("div", attrs={"class":"input_picker jq_input_picker"})
+#     print("時間表：", theater_time[0].text)
+
+
+# 列印上映電影院以及時間(大會解答)
+for movie_theater in htmls:
+    print("----------------------------------------------------------------------")
+    
+    theater_name = movie_theater.find("li", attrs={'class':'adds'})
+    print("電影院: ", theater_name.a.string)
+
+    project_type = movie_theater.find_all("li", attrs={'class':'taps'})  # 定位放映類型
+        
+    time_table = movie_theater.find_all("li", attrs={'class':'time _c'})  # 定位時間表
+        
+    for i in range(len(project_type)):
+        print("放映類型: ", project_type[i].span.get_text())  # 印出電影類型
+        
+        for p4 in time_table[i].find_all("input", attrs={'name':'schedule_list'}):
+            print("%s" % (p4["value"]))  # 印出放映時間
