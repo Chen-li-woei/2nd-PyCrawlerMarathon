@@ -16,7 +16,7 @@
 
 
 
-	</head>
+	<script async="" src="/cdn-cgi/bm/cv/2172558837/api.js"></script></head>
     <body>
 		
 <div class="bbs-screen bbs-content">
@@ -61,6 +61,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//images.ptt.cc/bbs/v2.27/bbs.js"></script>
 
-    
+    <script type="text/javascript">(function(){window['__CF$cv$params']={r:'57c040386ee145ac',m:'3e3b32389ef9320c0e39e46c8d82e31f74156c0b-1585554743-1800-AYzRdwxCd/lGYNlMR+Qnt+t0Crqm95CNZy6Q2iOiDUXN5yvPqRAu+8Jj164jLoT14xkGd+BInzRyXoCG5k5VgZI+iyZihdxW9JQ/erYJ7F6+E/yGhHYqjtFrcePIyGEgC35kkPT7UkNe8aM65Nq2z021i5DkAACyZhEhhVKp21JfkXHMJ/bS0FCy8RvOtoSFrA==',s:[0xfc8dc3f0ba,0x2ee8ea1610],fb:0,}})();</script>
 
 </body></html>
