@@ -59,7 +59,7 @@ for paragraph in content:
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 範例2：從爬取的文章內容中，擷取出有外部連結的關鍵字。這些關鍵字在文章中是以藍色字體顯示，會連到外部的網頁，並解釋其內容。
-external_link_dict = dict({})
+# external_link_dict = dict({})
 # external_link_list = []
 
 for ext_link in content:
@@ -68,7 +68,7 @@ for ext_link in content:
         for link_string in a_tag:
             a_link = link_string["href"]       # 外部連結的網址
             a_keyword = link_string.get_text()  # 外部連結的中文名稱
-            external_link_dict[a_link]=a_keyword
+            # external_link_dict[a_link]=a_keyword
             print("外部連結: [%s] %s" % (a_keyword, a_link))
             
 
@@ -134,7 +134,7 @@ def WikiArticle(key_word_link, key_word, recursive):
         #
         # Part 2: 請參考範例2，萃取出本篇文章中所延伸引用的外部連結，並儲存在external_link_dict
         #
-        # external_link_dict = dict({})
+        external_link_dict = dict({})
         
         # external_link_dict[key_word_link]=key_word
                 
@@ -144,7 +144,7 @@ def WikiArticle(key_word_link, key_word, recursive):
                 for link_string in a_tag:
                     a_link = link_string["href"]       # 外部連結的網址
                     a_keyword = link_string.get_text()  # 外部連結的中文名稱
-                    # external_link_dict[a_link]=a_keyword
+                    external_link_dict[a_link]=a_keyword
                     print("外部連結: [%s] %s" % (a_keyword, a_link))
         print("\n\n")
         
