@@ -47,8 +47,37 @@ table = soup.find('table', class_='TABLE_G')
 print(table)
 
 d = pd.read_html(html_source)
-# df = pd.DataFrame(table)
+print(d[5])
 browser.close()               #關閉瀏覽器
+
+
+
+'''
+解答版
+d = {}
+for tr in table.find_all('tr')[1:]:
+
+    for i, td in enumerate(tr.find_all('td')):
+        
+        if len(tr.find_all('td')) == 5:
+            if i == 0:
+                obs = td.text
+                d.setdefault(obs, {})
+            if i == 2:
+                date = td.text
+            if i == 3:
+                value = td.text
+                d[obs][date] = value
+        
+        if len(tr.find_all('td')) == 3:
+            if i == 0:
+                date = td.text
+            if i == 1:
+                value = td.text
+                d[obs][date] = value
+print(d)
+'''
+
 
 
 '''
