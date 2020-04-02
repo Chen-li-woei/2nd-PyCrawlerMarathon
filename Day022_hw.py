@@ -46,11 +46,13 @@ browser.quit();
 
 d = pd.read_html(html_source)
 
-print(d[5].iloc[:7])
+print(d[5].iloc[:8],d[5].iloc[12:20])
 
 #####################################################################################################
 
-
+# for a in range(len(d[5])):
+#     if (d[5].iloc[a,0] =="SO2") and (d[5].iloc[a,2] <="2018/08") or (d[5].iloc[a,0] =="CO") and (d[5].iloc[a,2] <="2018/08"):
+#         print(d[5].iloc[a])
 
 
 
