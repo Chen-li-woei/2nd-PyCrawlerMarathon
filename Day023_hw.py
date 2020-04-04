@@ -89,6 +89,7 @@ for i, news_item in enumerate(news_block):
     externalLink = "https://www.ettoday.net" + news_body.a["href"]
     getNewsDetailContent(externalLink)
 
+browser.quit()
 
 
 
