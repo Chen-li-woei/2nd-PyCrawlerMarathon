@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for myproject project
+# Scrapy settings for Ch9_4a project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,22 +9,28 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'myproject'
+BOT_NAME = 'Ch9_4a'
 
-SPIDER_MODULES = ['myproject.spiders']
-NEWSPIDER_MODULE = 'myproject.spiders'
+SPIDER_MODULES = ['Ch9_4a.spiders']
+NEWSPIDER_MODULE = 'Ch9_4a.spiders'
 
+# 輸出 JSON 資料
+FEED_FORMAT = "json"
+FEED_URI = "pttbeauty.json"
+FEED_EXPORT_ENCODING = "utf-8"
 
-#預設輸出檔案，用utf-8-sig 編碼，才部會亂碼
-FEED_FORMAT = 'csv'
-FEED_URI = 'day027.csv'
-FEED_EXPORT_ENCODING = 'utf-8-sig'
+ITEM_PIPELINES = {
+   'scrapy.pipelines.files.FilesPipeline': 1
+}
+FILES_STORE = 'images'
 
+CONCURRENT_REQUESTS_PER_DOMAIN = 1
+DOWNLOAD_DELAY = 5
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'myproject (+http://www.yourdomain.com)'
+#USER_AGENT = 'Ch9_4a (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+# ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -52,13 +58,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'myproject.middlewares.MyprojectSpiderMiddleware': 543,
+#    'Ch9_4a.middlewares.Ch94ASpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'myproject.middlewares.MyprojectDownloaderMiddleware': 543,
+#    'Ch9_4a.middlewares.Ch94ADownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -69,10 +75,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-#    'myproject.pipelines.MyprojectPipeline': 300,
-    'myproject.pipelines.JSONPipeline': 10
-}
+#ITEM_PIPELINES = {
+#    'Ch9_4a.pipelines.Ch94APipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
