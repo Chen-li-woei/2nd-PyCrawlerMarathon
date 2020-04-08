@@ -11,7 +11,6 @@ def main(target_urls,filename):
     # ]
     
     
-    
     process = CrawlerProcess(get_project_settings())
     # process.crawl('PTTCrawler', start_urls=target_urls, filename='test.json')
     process.crawl('PTTCrawler', start_urls=target_urls, filename=filename)
