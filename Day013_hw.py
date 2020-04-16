@@ -68,7 +68,8 @@ Created on Mon Mar 16 09:33:04 2020
 import requests
 from bs4 import BeautifulSoup
 ## beauty、sex、政治不能抓
-url = 'https://www.ptt.cc/bbs/Beauty/index.html'
+
+url = 'https://www.ptt.cc/bbs/nba/index.html'
 r = requests.get(url)
 
 soup = BeautifulSoup(r.text, "html5lib")
